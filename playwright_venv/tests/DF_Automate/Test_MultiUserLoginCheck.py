@@ -1,7 +1,7 @@
 def test_navigation(page):
     
     # URL Opening
-    URL="http://localhost:8081"
+    URL="http://localhost:8080"
     page.goto(URL)
     print("")
     print("Page URL Is: ", page.url)
