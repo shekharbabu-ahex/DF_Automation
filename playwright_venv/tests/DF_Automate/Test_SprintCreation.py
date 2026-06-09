@@ -10,7 +10,7 @@ ProjectName ="Tester Work Project"
 # LOGIN FUNCTION
 #----------------------------
 def login (page):
-   
+
     page.goto(Config.URL)
     print("")
     page.evaluate("""document.body.style.zoom='75%'""")
@@ -135,3 +135,4 @@ def test_sprint_creation(page):
     fill_sprint_details(page)
     create_sprint(page)
     verify_sprint_creation(page)
+
