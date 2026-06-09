@@ -105,6 +105,7 @@ def verify_project_details(page):
 
     # Navigating to the created project details page and verifying the details by asserting the values in respective fields with the Actual filled Values
     page.get_by_role("button", name="Projects").click()
+    page.get_by_role("button", name="Projects").screenshot(path="C:/Users/shekh/OneDrive/Desktop/Playwright/playwright_venv/Screenshots/projects_list.png")
     page.get_by_role("link", name="View All Projects").click()
 
     # Using Search Functionality to directly navigate to the project details page
@@ -118,6 +119,7 @@ def verify_project_details(page):
     project_row.locator("button").last.click()
     page.get_by_role("menuitem", name="Edit Project").click()
 
+    page.screenshot(path="C:/Users/shekh/OneDrive/Desktop/Playwright/playwright_venv/Screenshots/test_project_details.png")
     # Asserting the values in respective fields with the constant values from config file
     expect(page.get_by_role("textbox",name="Project Name *")).to_have_value(Config.ProjectName)
     expect(page.get_by_role("textbox",name="Project Code")).to_have_value(Config.ProjectCode)
