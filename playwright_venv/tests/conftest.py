@@ -5,7 +5,7 @@ from playwright.sync_api import expect
 @pytest.fixture(scope="session")
 def browser():
     playwright = sync_playwright().start()
-    browser = playwright.chromium.launch(headless=False, slow_mo=2000)
+    browser = playwright.chromium.launch(headless=False) #, slow_mo=2000)
     yield browser
     browser.close()
     playwright.stop()

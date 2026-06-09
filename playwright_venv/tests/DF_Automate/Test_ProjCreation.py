@@ -1,9 +1,10 @@
 import re
 from playwright.sync_api import expect
 from datetime import datetime
-from tests.DF_Automate.config.config import Config      # Constant values for the test
-from tests.DF_Automate.UserLogin import login
-from tests.DF_Automate.conftest import page           # Login function from UserLogin test file
+
+from Tests.DF_Automate.config.config import Config      # Constant values for the test
+from Tests.DF_Automate.UserLogin import login
+from Tests.DF_Automate.conftest import page           # Login function from UserLogin test file
 
 # ----------------------------
 # Open Project Drawer

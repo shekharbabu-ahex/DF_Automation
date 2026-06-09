@@ -5,7 +5,7 @@ from playwright.sync_api import sync_playwright
 @pytest.fixture(scope="session")
 def browser():
     playwright = sync_playwright().start()
-    browser = playwright.chromium.launch(headless=False, slow_mo=1000)
+    browser = playwright.chromium.launch(headless=False) #, slow_mo=1000)
     yield browser
     browser.close()
     playwright.stop()
@@ -14,15 +14,15 @@ def browser():
 def page(browser):  # Use browser fixture
     context = browser.new_context()
 
-    context.start_tracing(
-        screenshots=True,
-        snapshots=True,
-        sources=True
-    )
+    # context.start_tracing(
+    #     screenshots=True,
+    #     snapshots=True,
+    #     sources=True
+    # )
 
     page = context.new_page()
     yield page
-    context.stop_tracing(path="C:/Users/shekh/OneDrive/Desktop/Playwright/playwright_venv/trace.zip")
+    # context.stop_tracing(path="C:/Users/shekh/OneDrive/Desktop/Playwright/playwright_venv/trace.zip")
     context.close()
 
 

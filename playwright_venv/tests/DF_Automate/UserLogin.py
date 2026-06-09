@@ -1,11 +1,11 @@
-from tests.DF_Automate.config.config import Config      # Constant values for the test
+from Tests.DF_Automate.config.config import Config      # Constant values like URL, user credentials, project details etc.
 from playwright.sync_api import expect
 
 # ----------------------------
 # User Login Function
 # ----------------------------
 def login (page):
-        
+
     page.goto(Config.DevURL)
     print("Application Opened")
     page.evaluate("""document.body.style.zoom='75%'""")
