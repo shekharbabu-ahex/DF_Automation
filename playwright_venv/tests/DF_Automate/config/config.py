@@ -6,10 +6,12 @@ SPRINTCODE=random.randint(1, 100)
 class Config:
 
     DevURL = "http://localhost:8080"
-    UserEmail ="admin@tec.com"
-    UserPassword ="Password@123"
-    ProjectName = "Auto Project Test 575" #f"Auto Project Test {PRJCODE}"    # "Tester Work Project" 
-    ProjectCode = "PRJ575" #f"PRJ{PRJCODE}"    # "PRJ3837" 
+    AdminEmail ="shekharbabu.ahex@gmail.com"
+    AdminPassword ="Password@123"
+    UserEmail ="test_dev2@yopmail.com"
+    UserPassword ="Password@456"
+    ProjectName = "test Project Visibility" #f"Auto Project Test {PRJCODE}"    # "Tester Work Project" 
+    ProjectCode = "PRC-001" #f"PRJ{PRJCODE}"    # "PRJ3837" 
     ProjectType ="Client"   # Internal, Client, Research, Maintenance
     ProjectManager ="PM 01 (TEC002)"
     ProjectStartDate ="2025-08-01"

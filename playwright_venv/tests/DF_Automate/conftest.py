@@ -10,19 +10,12 @@ def browser():
     browser.close()
     playwright.stop()
 
+
 @pytest.fixture(scope="function")
 def page(browser):  # Use browser fixture
     context = browser.new_context()
-
-    # context.start_tracing(
-    #     screenshots=True,
-    #     snapshots=True,
-    #     sources=True
-    # )
-
     page = context.new_page()
     yield page
-    # context.stop_tracing(path="C:/Users/shekh/OneDrive/Desktop/Playwright/playwright_venv/trace.zip")
     context.close()
 
 

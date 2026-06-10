@@ -4,7 +4,7 @@ from playwright.sync_api import expect
 # ----------------------------
 # User Login Function
 # ----------------------------
-def login (page):
+def login (page, email, password):
 
     page.goto(Config.DevURL)
     print("Application Opened")
@@ -19,8 +19,8 @@ def login (page):
     expect(page).to_have_url(Config.DevURL + "/login")
     print("Assertion Successful, Navigated to Login Page")
 
-    page.get_by_label("Email").fill(Config.UserEmail)
-    page.get_by_label("Password").fill(Config.UserPassword)
+    page.get_by_label("Email").fill(email)
+    page.get_by_label("Password").fill(password)
 
     page.get_by_role("button", name="Sign in").click()
     

@@ -11,13 +11,13 @@ from Tests.DF_Automate.conftest import page           # Login function from User
 # ----------------------------
 def open_new_project_drawer(page):
 
-    # Navigating to Projects Tab And Checking if user has permission to create project by asserting the presence of "Add New Project" button
+    # Navigating to View All Projects Page And Checking if user has permission to create project by asserting the presence of "Add New Project" button
     page.get_by_role("button", name="Projects").click()
     page.get_by_role("link", name="View All Projects").click()
     expect(page.get_by_role("button", name="Add New Project")).to_be_visible()
     print("Assertion Successful, User has a Permission To Create New Project")
 
-    # Clicking on "Add New Project" button and asserting the presence of "Create New Project" text to confirm that project creation drawer is opened
+    # Clicking on "Add New Project" button and asserting the presence of "Create New Project" text on drawer
     page.get_by_role("button", name="Add New Project").click()
     expect(page.get_by_text("Create New Project")).to_be_visible()
     print("Assertion successful, Project Drawer Opened")
@@ -26,10 +26,9 @@ def open_new_project_drawer(page):
 # ----------------------------
 # Fill Project Details
 # ----------------------------
-
 def fill_project_details(page):
 
-    # Filling the project details in the project creation drawer using the constant values from config file
+    # Filling the project details in the project creation drawer using the values from config file
     page.get_by_role("textbox", name="Project Name *").fill(Config.ProjectName)
     page.get_by_role("textbox", name="Project Code").fill(Config.ProjectCode)
     page.get_by_role("combobox", name="Project Manager *").click()
@@ -38,8 +37,8 @@ def fill_project_details(page):
 
     date_obj = datetime.strptime(Config.ProjectStartDate, "%Y-%m-%d")
 
-    target_proj_month_year = date_obj.strftime("%B %Y")
-    target_Proj_day = str(date_obj.day)
+    target_proj_start_month_year = date_obj.strftime("%B %Y")
+    target_proj_start_day = str(date_obj.day)
 
     today = datetime.today()
 
@@ -47,18 +46,17 @@ def fill_project_details(page):
     nav_button = (
         "Go to previous month"
         if date_obj.date() < today.date()
-        else "Go to next month"
-    )
+        else "Go to next month")
 
     while True:
         current_month = page.locator('[role="presentation"]').first.text_content()
 
-        if current_month == target_proj_month_year:
+        if current_month == target_proj_start_month_year:
             break
 
         page.get_by_role("button", name=nav_button).click()
 
-    page.get_by_role("gridcell", name=target_Proj_day, exact=True).first.click()
+    page.get_by_role("gridcell", name=target_proj_start_day, exact=True).first.click()
 
     page.get_by_role("combobox", name="Project Type *").click()
     page.get_by_role("option", name=Config.ProjectType).click()
@@ -214,8 +212,8 @@ def assign_users_to_project(page):
         nav_button = (
             "Go to previous month"
             if user_end_date_obj.date() < today.date()
-            else "Go to next month"
-        )
+            else "Go to next month")
+        
         while True:
             current_month = page.locator('[role="presentation"]').first.text_content()
 

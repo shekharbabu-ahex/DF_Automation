@@ -1,8 +1,8 @@
 from Tests.DF_Automate.config.config import Config
 
 def test_users_login_check(page):
-    
-    # URL Opening
+
+    # Application URL and Login
     page.goto(Config.DevURL)
     page.evaluate("""document.body.style.zoom='75%'""")
     print("")
@@ -12,7 +12,7 @@ def test_users_login_check(page):
     # Navigating to Sign in Page
     page.get_by_role("button", name="Sign In").click()
 
-
+    # Users Credentials List
     user_list_emails=["admin@acm.com", "pm@acm.com", "dev@acm.com", "tester@acm.com"] #, "tl@acm.com"]
     user_list_passwords=["Password@4567", "Password@456", "Password@1234", "Password@456"] #, "password123"]
     UserCount = len(user_list_emails)
@@ -44,10 +44,7 @@ def test_users_login_check(page):
         # Clicking on Profil Icon
         page.get_by_role("button", name="AC", exact=True).click()
 
-        # print("User Name: ",page.locator(".text-sm.font-medium.leading-none.text-foreground").inner_text())
-        # page.get_by_text("Acme Corporation Administrator").click()
-
         # Clicking on logout button
         page.get_by_role("menuitem", name="Log out").click()
 
-    print("All Users Login Tested")
+    print(f"Login Tested For {UserCount} Users Successfully")
