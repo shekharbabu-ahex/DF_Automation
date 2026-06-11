@@ -144,7 +144,7 @@ def assign_users_to_project(page):
     #Opeing the project details page by clicking on the project name in the search results
     page.get_by_role("heading", name=Config.ProjectName).click()
 
-    # Navigating to Team Tab in Project Details Page    
+    # Navigating to Team Tab in Project Details Page
     page.get_by_role("button", name="Project Details").click()
     page.get_by_role("tab", name="Team").click()
 
@@ -190,7 +190,6 @@ def assign_users_to_project(page):
             page.get_by_role("button", name=nav_button).click()     #previous
 
         page.get_by_role("gridcell", name=user_start_day, exact=True).first.click()
-
 
 
         page.get_by_role("button", name="End Date *").click()

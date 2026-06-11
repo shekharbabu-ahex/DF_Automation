@@ -10,8 +10,8 @@ class Config:
     AdminPassword ="Password@123"
     UserEmail ="test_dev2@yopmail.com"
     UserPassword ="Password@456"
-    ProjectName = "test Project Visibility" #f"Auto Project Test {PRJCODE}"    # "Tester Work Project" 
-    ProjectCode = "PRC-001" #f"PRJ{PRJCODE}"    # "PRJ3837" 
+    ProjectName = "Status Test Project" #f"Auto Project Test {PRJCODE}"    # "Tester Work Project" 
+    ProjectCode = "PRJ1884" #f"PRJ{PRJCODE}"    # "PRJ3837" 
     ProjectType ="Client"   # Internal, Client, Research, Maintenance
     ProjectManager ="PM 01 (TEC002)"
     ProjectStartDate ="2025-08-01"
