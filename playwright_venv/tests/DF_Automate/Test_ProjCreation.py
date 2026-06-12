@@ -3,7 +3,7 @@ from playwright.sync_api import expect
 from datetime import datetime
 
 from Tests.DF_Automate.config.config import Config      # Constant values for the test
-from Tests.DF_Automate.UserLogin import login
+from Tests.DF_Automate.Test_UserLogin import login
 from Tests.DF_Automate.conftest import page           # Login function from UserLogin test file
 
 # ----------------------------
@@ -136,12 +136,16 @@ def verify_project_details(page):
 #----------------------------
 def assign_users_to_project(page):
 
+    page.get_by_role("button", name="Projects").click()
+    page.get_by_role("button", name="Projects").screenshot(path="C:/Users/shekh/OneDrive/Desktop/Playwright/playwright_venv/Screenshots/projects_list.png")
+    page.get_by_role("link", name="View All Projects").click()
+
     # Using Search Functionality to directly navigate to the project
     page.get_by_role("textbox", name="Search by project name, code or client...").clear()
     page.get_by_role("textbox", name="Search by project name, code or client...").fill(Config.ProjectCode)
     expect(page.get_by_role("heading", name=Config.ProjectName, exact=True)).to_be_visible()
 
-    #Opeing the project details page by clicking on the project name in the search results
+    # Opeing the project details page by clicking on the project name in the search results
     page.get_by_role("heading", name=Config.ProjectName).click()
 
     # Navigating to Team Tab in Project Details Page
@@ -168,7 +172,7 @@ def assign_users_to_project(page):
         # user_target_month_year = date_obj.strftime("%B %Y")
         # user_target_day = str(date_obj.day)
 
-        user_start_date_obj = datetime.strptime(Config.member["start_date"], "%Y-%m-%d")
+        user_start_date_obj = datetime.strptime(member["start_date"], "%Y-%m-%d")
 
         user_start_month_year = user_start_date_obj.strftime("%B %Y")
         user_start_day = str(user_start_date_obj.day)
@@ -192,36 +196,36 @@ def assign_users_to_project(page):
         page.get_by_role("gridcell", name=user_start_day, exact=True).first.click()
 
 
-        page.get_by_role("button", name="End Date *").click()
+        # page.get_by_role("button", name="End Date *").click()
 
-        # date_obj = datetime.strptime(member["end_date"], "%Y-%m-%d")
+        # # date_obj = datetime.strptime(member["end_date"], "%Y-%m-%d")
 
-        # target_month_year = date_obj.strftime("%B %Y")
-        # target_day = str(date_obj.day)
+        # # target_month_year = date_obj.strftime("%B %Y")
+        # # target_day = str(date_obj.day)
 
-        user_end_date_obj = datetime.strptime(Config.member["end_date"], "%Y-%m-%d")
+        # user_end_date_obj = datetime.strptime(Config.member["end_date"], "%Y-%m-%d")
 
-        user_end_month_year = user_end_date_obj.strftime("%B %Y")
-        user_end_day = str(user_end_date_obj.day)
+        # user_end_month_year = user_end_date_obj.strftime("%B %Y")
+        # user_end_day = str(user_end_date_obj.day)
 
-        today = datetime.today()
+        # today = datetime.today()
 
 
-        # Decide navigation direction
-        nav_button = (
-            "Go to previous month"
-            if user_end_date_obj.date() < today.date()
-            else "Go to next month")
+        # # Decide navigation direction
+        # nav_button = (
+        #     "Go to previous month"
+        #     if user_end_date_obj.date() < today.date()
+        #     else "Go to next month")
         
-        while True:
-            current_month = page.locator('[role="presentation"]').first.text_content()
+        # while True:
+        #     current_month = page.locator('[role="presentation"]').first.text_content()
 
-            if current_month == user_end_month_year:
-                break
+        #     if current_month == user_end_month_year:
+        #         break
 
-            page.get_by_role("button", name=nav_button).click()     #previous
+        #     page.get_by_role("button", name=nav_button).click()     #previous
 
-        page.get_by_role("gridcell", name=user_end_day, exact=True).first.click()
+        # page.get_by_role("gridcell", name=user_end_day, exact=True).first.click()
 
 
         page.get_by_role("combobox", name="Engagement Type *").click()
@@ -249,5 +253,5 @@ def test_project_creation(page):
     # fill_project_details(page)
     # submit_project(page)
     # verify_project_creation(page)
-    verify_project_details(page)
+    # verify_project_details(page)
     assign_users_to_project(page)

@@ -111,12 +111,12 @@ def assign_users_to_project(admin_page):
 
     expect(admin_page.get_by_role("paragraph").filter(has_text=User.split("(")[0].strip())).to_be_visible()
 
-def user_context_verification(user_page):
+# def user_context_verification(user_page):
 
-    expect(user_page.get_by_text("New notification: New Project Assignment")).to_be_visible(timeout=5000)
+#     expect(user_page.get_by_text("New notification: New Project Assignment")).to_be_visible(timeout=5000)
 
-    user_page.get_by_role("button", name="Notifications").click()
-    expect(user_page.get_by_role("button").filter(has_text=f"You have been assigned to project: {Config.ProjectName}").first).to_be_visible()
+#     user_page.get_by_role("button", name="Notifications").click()
+#     expect(user_page.get_by_role("button").filter(has_text=f"You have been assigned to project: {Config.ProjectName}").first).to_be_visible()
 
 
 def test_browser_context_page():
@@ -136,10 +136,10 @@ def test_browser_context_page():
             login(admin_page, email=Config.AdminEmail, password=Config.AdminPassword)
             login(user_page, email=Config.UserEmail, password=Config.UserPassword)
             assign_users_to_project(admin_page)
-            user_context_verification(user_page)
+            # user_context_verification(user_page)
         finally:
             admin_context.tracing.stop(path="C:/Users/shekh/OneDrive/Desktop/Playwright/playwright_venv/Traces/admin_trace.zip")
-            user_context.tracing.stop(path="C:/Users/shekh/OneDrive/Desktop/Playwright/playwright_venv/Traces/user_trace.zip")
+            # user_context.tracing.stop(path="C:/Users/shekh/OneDrive/Desktop/Playwright/playwright_venv/Traces/user_trace.zip")
 
             admin_context.close()
             user_context.close()

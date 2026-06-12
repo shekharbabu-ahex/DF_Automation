@@ -10,8 +10,8 @@ class Config:
     AdminPassword ="Password@123"
     UserEmail ="test_dev2@yopmail.com"
     UserPassword ="Password@456"
-    ProjectName = "Status Test Project" #f"Auto Project Test {PRJCODE}"    # "Tester Work Project" 
-    ProjectCode = "PRJ1884" #f"PRJ{PRJCODE}"    # "PRJ3837" 
+    ProjectName = "RBAC check" #f"Auto Project Test {PRJCODE}"    # "Tester Work Project" 
+    ProjectCode = "PRJ4129" #f"PRJ{PRJCODE}"    # "PRJ3837" 
     ProjectType ="Client"   # Internal, Client, Research, Maintenance
     ProjectManager ="PM 01 (TEC002)"
     ProjectStartDate ="2025-08-01"
@@ -21,10 +21,19 @@ class Config:
     ProjectDocumentPath = r'C:\Users\shekh\OneDrive\Desktop\DeskFactor\TestDocs\1 Excel Template.xls'
 
     MembersList = [
-                    {"user": "Admin 01 (TEC001)", "role": "Administrator", "start_date": "2027-08-01", "end_date": "2028-08-01"},
-                    {"user": "Dev 01 (TEC004)","role": "Developer", "start_date": "2026-08-01", "end_date": "2027-08-01"},
+                    # {"user": "A_Admin_01", "role": "Administrator", "start_date": "2026-08-01", "end_date": "2028-08-01"},
+                    # {"user": "A_PM_02 (PM-002)","role": "Developer", "start_date": "2026-08-01", "end_date": "2026-08-01"},
+                    {"user": "Test Dev 09 (dev-009)","role": "Dev", "start_date": "2026-08-01", "end_date": "2026-08-01"},
+                    {"user": "Test_Dev 10 (EMP010)","role": "Developer", "start_date": "2026-08-01", "end_date": "2026-08-01"},
+                    {"user": "user long email (@#$%)","role": "PM", "start_date": "2026-08-01", "end_date": "2026-08-01"},
+                    {"user": "Test User 03 Z (EMP009)","role": "PM", "start_date": "2026-08-01", "end_date": "2026-08-01"},
+                    {"user": "Test User 04 (EMP007)","role": "QA", "start_date": "2026-08-01", "end_date": "2026-08-01"},
+                    {"user": "Test User 05 (ACM001)","role": "Developer", "start_date": "2026-08-01", "end_date": "2026-08-01"},
+                    {"user": "Test User 6","role": "Client", "start_date": "2026-08-01", "end_date": "2026-08-01"},
+                    {"user": "Test User 09 (EMP006)","role": "Developer", "start_date": "2026-08-01", "end_date": "2026-08-01"},
+
                     # {"user": "PM 01 (PM001)","role": "PM"},
-                    {"user": "Tester 01 (TEC005)","role": "Tester", "start_date": "2020-08-01", "end_date": "2021-08-01"}
+                    # {"user": "Tester 01 (TEC005)","role": "Tester", "start_date": "2027-08-01", "end_date": "2027-01-01"}
                     ]
 
     SprintTitle = f"Auto Sprint {SPRINTCODE}"
