@@ -32,3 +32,5 @@ def test_Attachments(page):
     page.get_by_role("button", name="Upload").click()
     page.wait_for_timeout(2000)
     expect(page.get_by_text("1 file(s) uploaded successfully")).to_be_visible()
+
+    # Done
